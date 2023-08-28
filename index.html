@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Daisy UI and Tailwind Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Phone Hunter Dynamic Website Practice</title>
+    <style>
+      .poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="poppins max-w-screen-xl mx-auto">
+    <header class="pt-8">
+      <div class="flex justify-between items-center px-10">
+        <div class="text-xl font-semibold">Hot Gadget</div>
+        <div class="">
+          <button
+            class="py-3 px-8 bg-blue-500 text-white font-medium text-lg rounded-lg"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+      <div class="header-text pt-14">
+        <div class="all-text">
+          <h1 class="md:text-5xl text-4xl font-bold text-black text-center">
+            Apple Iphone 13 Pro Max
+          </h1>
+          <h1 class="text-lg text-center py-6">
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority <br />
+            have suffered alteration in some form, by injected humou.
+          </h1>
+          <div class="flex justify-center">
+            <button
+              class="py-3 px-8 bg-blue-500 text-white font-medium text-lg rounded-lg"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="header-img flex items-end gap-5 lg:gap-10 md:gap-8 mb-24 mt-20 justify-center md:px-20 lg:px-0 px-10"
+      >
+        <div class="">
+          <img class="block" src="images/miniPhn430px.png" alt="" />
+        </div>
+        <div class="">
+          <img class="block" src="images/big phn 400px.png" alt="" />
+        </div>
+        <div class="">
+          <img class="block" src="images/miniPhn430px.png" alt="" />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h1 class="text-center text-black font-bold text-3xl">
+          Search Your Phone
+        </h1>
+        <div
+          class="search mb-20 flex flex-col md:flex-row items-center justify-center mt-7 md:gap-0 gap-4"
+        >
+          <input
+            type="search"
+            name=""
+            id="searchField"
+            placeholder="Search your phone"
+            class="md:w-1/2 w-9/12 py-[14px] px-8 pl-5 bg-gray-300 rounded-lg outline-blue-500"
+          />
+          <button
+            onclick="afterClickSearch()"
+            id="searchBtn"
+            class="bg-blue-500 text-white font-medium text-lg py-3 px-8 rounded-lg"
+          >
+            Search
+          </button>
+        </div>
+      </section>
+
+      <!-- card section start -->
+      <section>
+        <div id="loadingSpinner" class="text-center hidden">
+          <div class="loading loading-bars loading-lg"></div>
+        </div>
+
+        <div
+          id="allPhoneContainer"
+          class="cardAll grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-10 mb-20 gap-5"
+        ></div>
+      </section>
+
+      <section class="hidden" id="showAllContainer">
+        <div class="flex justify-center mb-20">
+          <button
+            onclick="showAll()"
+            id="showAllBtn"
+            class="bg-blue-500 text-white font-medium text-lg py-3 px-8 rounded-lg"
+          >
+            Show All
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <dialog id="show_detail_modal" class="modal">
+          <form method="dialog" class="modal-box">
+            <div class="flex justify-center mb-10" id="imageInModal">
+              <img class="w-2/6" src="images/miniPhn430px.png" alt="" />
+            </div>
+            <h3 id="phoneNameInModal" class="font-bold text-2xl mb-3">
+              Hello!
+            </h3>
+            <h3
+              id="phoneStorageInModal"
+              class="font-semibold text-base text-[#403F3F]"
+            >
+              Hello!
+            </h3>
+            <h3
+              id="phoneDisplayModal"
+              class="font-semibold text-base text-[#403F3F]"
+            >
+              Hello!
+            </h3>
+            <h3 id="phoneCheap" class="font-semibold text-base text-[#403F3F]">
+              Hello!
+            </h3>
+            <h3 id="phoneMemory" class="font-semibold text-base text-[#403F3F]">
+              Hello!
+            </h3>
+            <h3 id="phoneUrl" class="font-semibold text-base text-[#403F3F]">
+              Hello!
+            </h3>
+            <h3 id="release" class="font-semibold text-base text-[#403F3F]">
+              Hello!
+            </h3>
+            <h3 id="brand" class="font-semibold text-base text-[#403F3F]">
+              Hello!
+            </h3>
+            <h3 id="gps" class="font-semibold text-base text-[#403F3F]">
+              Hello!
+            </h3>
+
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action flex justify-center">
+              <!-- if there is a button in form, it will close the modal -->
+              <button
+                class="bg-blue-500 text-white font-medium text-lg py-3 px-8 rounded-lg"
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+    </main>
+
+    <footer></footer>
+    <!-- js file link -->
+    <script src="js/huntingPhone.js"></script>
+  </body>
+</html>
